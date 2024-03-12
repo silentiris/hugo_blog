@@ -2,7 +2,7 @@
 # 站點配置
 
 baseURL = ""
-title = "irisChao"
+title = "irischao"
 languageCode = "zh-hant"
 hasCJKLanguage = true
 # 版權資訊（支援 Markdown）
