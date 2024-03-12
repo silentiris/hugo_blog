@@ -1,0 +1,1621 @@
+##########################################
+# 站點配置
+
+baseURL = "blog.silentdragon.com"
+title = "irischao"
+languageCode = "zh-hant"
+hasCJKLanguage = true
+# 版權資訊（支援 Markdown）
+copyright = "在保留本文作者及本文連結的前提下，非商業用途隨意轉載分享。"
+
+# 主題選擇
+theme = "meme"
+
+# `hugo new` 新建文章自動開啟的文字編輯器
+newContentEditor = ""
+
+# i18n
+defaultContentLanguage = "zh-hant"
+defaultContentLanguageInSubdir = false
+
+# 是否複數化列表頁面的標題
+pluralizeListTitles = false
+
+# 摘要的字數限制
+summaryLength = 42
+
+# 是否開啟 GitHub 風格的 Emoji 書寫方式
+enableEmoji = false
+
+# 腳註的返回連結中的文字
+footnoteReturnLinkContents = "↩"
+
+# 是否啟用 Git 版本資訊
+enableGitInfo = true
+
+# 是否生成 robots.txt 檔案
+enableRobotsTXT = false
+
+# 每一分頁的文章數（僅對「文章摘要」首頁佈局有效）
+paginate = 5
+
+# URL 相關
+disablePathToLower = false
+relativeURLs = false
+uglyURLs = false
+
+# URL 結構
+[permalinks]
+    # categories = "/categories/:slug/"
+    tags = "/tags/:slug/"
+
+# 類別
+[taxonomies]
+    # category = "categories"
+    tag = "tags"
+
+# 修改時間
+[frontmatter]
+    lastmod = ["lastmod", ":git", ":fileModTime", ":default"]
+
+# Markdown 渲染器
+[markup]
+    defaultMarkdownHandler = "goldmark"
+    [markup.goldmark]
+        [markup.goldmark.extensions]
+            definitionList = true
+            footnote = true
+            linkify = true
+            strikethrough = true
+            table = true
+            taskList = true
+            typographer = false
+        [markup.goldmark.parser]
+            attribute = true
+            autoHeadingID = true
+            autoHeadingIDType = "github"
+        [markup.goldmark.renderer]
+            hardWraps = false
+            unsafe = true
+            xHTML = false
+    [markup.highlight]
+        codeFences = true
+        guessSyntax = false
+        lineNos = false
+        lineNumbersInTable = true
+        noClasses = false
+    [markup.tableOfContents]
+        startLevel = 2
+        endLevel = 6
+        ordered = true
+
+# 壓縮 HTML
+[minify.tdewolff.html]
+    keepWhitespace = false
+
+# 作者資訊
+[author]
+    # 名字
+    name = "irischao"
+    # 郵箱
+    email = "s1lentdragon@outlook.com"
+    # 座右銘或簡介
+    motto = "依然自由自我"
+    # 頭像
+    avatar = "/icons/apple-touch-icon.png"
+    # 網站（預設值：baseURL）
+    website = "https://io-oi.me/"
+    # 推特
+    twitter = "reuixiy"
+
+# 相關文章
+[related]
+    threshold = 80
+    includeNewer = true
+    toLower = true
+    # [[related.indices]]
+    #     name = "categories"
+    #     weight = 100
+    [[related.indices]]
+        name = "tags"
+        weight = 95
+    [[related.indices]]
+        name = "date"
+        weight = 10
+        pattern = "2006"
+
+# Atom 檔案格式的媒體型別
+[mediaTypes."application/atom+xml"]
+    suffixes = ["xml"]
+
+# MemE 主題自定義的 Atom 模板
+[outputFormats.SectionsAtom]
+    mediaType = "application/atom+xml"
+    baseName = "atom"
+
+# MemE 主題自定義的 RSS 模板
+[outputFormats.SectionsRSS]
+    mediaType = "application/rss+xml"
+    baseName = "rss"
+
+# lunr.js 的搜尋索引
+[outputFormats.SearchIndex]
+    mediaType = "application/json"
+    baseName = "search"
+
+# Algolia 的搜尋索引
+[outputFormats.Algolia]
+    mediaType = "application/json"
+    baseName = "algolia"
+    isPlainText = true
+    notAlternative = true
+
+# Hugo 的輸出控制
+[outputs]
+    page = ["HTML"]
+    # home = ["HTML", "SectionsAtom", "SectionsRSS", "SearchIndex", "Algolia"]
+    home = ["HTML", "SectionsAtom", "SectionsRSS"]
+    section = ["HTML"]
+    taxonomy = ["HTML"]
+    term = ["HTML"]
+
+# RSS & Atom 文章數限制
+[services.rss]
+    limit = 10
+
+
+
+##########################################
+# 選單配置
+
+# MemE 主題支援以下四種菜單：
+# 1. main       頂欄下方（居中佈局）或裡面（彈性
+#               佈局）的選單欄
+# 2. home       首頁的底部連結（適用於「詩意
+#               人生」和「影片片段」佈局）
+# 3. socials    社交欄（關於頁面的極簡頁尾）
+# 4. links      連結欄（關於頁面的極簡頁尾）
+
+# 選單內的配置說明如下：
+# pageref/url   內鏈地址/外鏈地址
+# name          文字（留空（""）則無）
+# weight        位置
+# pre           內鏈（internal）或外鏈（external）
+# post          圖示（留空（""）則無）
+# identifier    圖示的 Class 名
+#               （對於彈性佈局的頂欄有三個特殊
+#               的值：`theme-switcher`、
+#               `lang-switcher`、`search`）
+
+[menu]
+    ## 選單欄
+    # [[menu.main]]
+    #     pageref = "/"
+    #     name = "首頁"
+    #     weight = 1
+    #     pre = "internal"
+    #     post = "home"
+    # [[menu.main]]
+    #     pageref = "/posts/"
+    #     name = "文章"
+    #     weight = 2
+    #     pre = "internal"
+    #     post = "archive"
+    # [[menu.main]]
+    #     pageref = "/categories/"
+    #     name = "分類"
+    #     weight = 3
+    #     pre = "internal"
+    #     post = "th"
+    # [[menu.main]]
+    #     pageref = "/tags/"
+    #     name = "標籤"
+    #     weight = 4
+    #     pre = "internal"
+    #     post = "tags"
+    # [[menu.main]]
+    #     pageref = "/about/"
+    #     name = "關於"
+    #     weight = 5
+    #     pre = "internal"
+    #     post = "user-circle"
+    [[menu.main]]
+        weight = 6
+        identifier = "theme-switcher"
+    [[menu.main]]
+        weight = 7
+        identifier = "lang-switcher"
+    # [[menu.main]]
+    #     weight = 8
+    #     identifier = "search"
+    #     post = "search"
+    [[menu.main]]
+        pageref = "/life/"
+        name = "生活"
+        weight = 1
+        pre = "internal"
+        post = "grav"
+        identifier = "life"
+    [[menu.main]]
+        pageref = "/tech/"
+        name = "技術"
+        weight = 2
+        pre = "internal"
+        post = "wpexplorer"
+        identifier = "tech"
+    [[menu.main]]
+        pageref = "/about/"
+        name = "述身"
+        weight = 3
+        pre = "internal"
+        post = "user-circle"
+        identifier = "about"
+
+    ## 首頁的底部連結
+    # [[menu.home]]
+    #     pageref = "/life/"
+    #     weight = 1
+    #     pre = "internal"
+    #     post = "grav"
+    #     identifier = "life"
+    # [[menu.home]]
+    #     pageref = "/tech/"
+    #     weight = 2
+    #     pre = "internal"
+    #     post = "wpexplorer"
+    #     identifier = "tech"
+    # [[menu.home]]
+    #     pageref = "/about/"
+    #     weight = 3
+    #     pre = "internal"
+    #     post = "user-circle"
+    #     identifier = "about"
+
+    ## 社交欄
+    [[menu.socials]]
+        url = "https://github.com/reuixiy"
+        name = "GitHub"
+        weight = 1
+        pre = "external"
+    [[menu.socials]]
+        url = "https://t.me/yixiuer"
+        name = "Telegram"
+        weight = 2
+        pre = "external"
+    [[menu.socials]]
+        url = "https://reuixiy.notion.site/2f10796bae1a4bddb1276a51d3f2118d"
+        name = "Others"
+        weight = 3
+        pre = "external"
+
+    ## 連結欄
+    [[menu.links]]
+        pageref = "/"
+        name = "Home"
+        weight = 1
+        pre = "internal"
+    [[menu.links]]
+        pageref = "/coldplay/"
+        name = "Coldplay"
+        weight = 2
+        pre = "internal"
+    [[menu.links]]
+        pageref = "/tags/"
+        name = "Tags"
+        weight = 3
+        pre = "internal"
+
+
+
+##########################################
+# 主題配置
+
+[params]
+    ######################################
+    # 頂欄
+
+    # 是否開啟
+    enableHeader = true
+
+    # 是否自動隱藏
+    enableHeaderAutoHide = false
+    # 說明：僅對彈性佈局的頂欄有效
+
+    # 是否在首頁顯示
+    displayHeaderInHome = true
+    # 說明：對彈性佈局的頂欄無效
+
+    # 背景
+    headerBackground = "alpha(var(--color-bg), 0.8) linear-gradient(90deg, #f795331a 0, #f370551a 15%, #ef4e7b1a 30%, #a166ab1a 44%, #5073b81a 58%, #1098ad1a 72%, #07b39b1a 86%, #6dba821a 100%)"
+    # 說明：https://developer.mozilla.org/zh-CN/docs/Web/CSS/background
+
+    # 頂欄佈局
+    headerLayout = "flex"
+    # 說明：居中佈局（center）或彈性佈局（flex）
+
+    # 在窄檢視下隱藏選單欄並顯示一個按鈕？
+    enableNavToggle = true
+
+    navHeight = "9em"
+    # 說明：選單欄展開時的高度
+
+
+    ######################################
+    # 品牌欄（在頂欄內）
+
+    # 是否使用 SVG 圖片
+    siteBrandSVG = false
+    # 如果是，請將你的 SVG 放到 `SVG.toml` 文
+    # 件內，並配置以下項。單位：px。
+    siteBrandSVGWidth = 250
+    siteBrandSVGHeight = 100
+    siteBrandSVGFill = "#fff"
+    # 如果否，則會使用你的站點標題作為預設值，並
+    # 以文字的形式顯示，下方可配置字號和字色。字
+    # 體請到底部的字型部分配置。單位：em。
+    siteBrandFontSize = 2
+    siteBrandFontColor = "var(--color-contrast-high)"
+
+
+    ######################################
+    # 選單欄
+
+    # 是否開啟
+    enableMenu = false
+    # 說明：對彈性佈局的頂欄無效
+
+    # 是否在首頁顯示
+    displayMenuInHome = false
+    # 說明：對彈性佈局的頂欄無效
+
+    # 是否按文章分割槽高亮當前選單項
+    activeInSection = false
+    # 說明：如果開啟，那麼當某一文章的分割槽名是某
+    #      一選單項中的 `url` 時，該文章頁面中
+    #      的該選單項也會被高亮
+
+
+    ######################################
+    # 首頁佈局
+
+    # MemE 主題有以下四種首頁佈局：
+    # 1. poetry    詩意人生
+    # 2. footage   影片片段
+    # 3. posts     文章摘要
+    # 4. page      普通頁面
+
+    homeLayout = "poetry"
+
+    ## 「詩意人生」
+    # 詩句，支援 Markdown
+    homePoetry = ["暗夜中", "渴望一束光的關懷", "在白天", "卻更渴望黑洞的吞噬", "因為好奇心，想看看黑暗中有什麼"]
+    # 底部連結的內間距，單位：em
+    homeLinksPadding = 1
+
+    ## 「影片片段」
+    homePoster = ""
+    homeVideoWebm = ""
+    homeVideoMp4 = ""
+    homeLogo = ""
+    homeLogoLink = ""
+    homeTitle = ""
+    homeMotto = ""
+    homeDescription = ""
+    homeKeywords = ""
+    homeLinksDelimiter = ""
+
+    ## 「文章摘要」
+    enableHideInHomepage = false
+    # 說明：激活 `hideInHomepage` front matter
+    #      的支持（性能原因默認關閉）
+
+
+    ######################################
+    # 站點資訊
+
+    # 站點的 LOGO
+    siteLogo = "/icons/apple-touch-icon.png"
+    # 說明：用於 JSON-LD、Open Graph
+
+    # 站點的描述
+    siteDescription = "這是一休兒之文術网誌！怎麽記住 reuixiy 呢？其實就是「一休兒」之拼音，不過方向是自右往左！"
+    # 說明：用於 HTML 的頭部元資料、JSON-LD、
+    #      Open Graph、Atom、RSS
+
+    # 站點的建立時間
+    siteCreatedTime = "2017-05-27T15:13:14+08:00"
+    # 注意：請保持此格式，更改數字
+
+    # 站點的推特帳號
+    siteTwitter = "reuixiy"
+    # 說明：用於 Twitter Cards
+
+
+    ######################################
+    # 分類方式
+
+    # MemE 主題支援以下兩種分類方式：
+    # 1. sections       分割槽
+    # 2. categories     部類
+    # 其中，分割槽是基於站點的 content 目錄下的
+    # 資料夾和子資料夾；部類是基於文章的 Front
+    # Matter。分類即樹狀分類，Hexo 是基於文章
+    # 的 Front Matter，Hugo 則是基於檔案系統
+    # 的結構。由於設計理念的不同，導致了 Hexo
+    # 與 Hugo 的這個差異，故在此設計這個選項，
+    # 以對從 Hexo 過來的使用者友好。但是請注意：
+    # Hugo 中無法完全實現基於 Front Matter
+    # 的樹狀分類，故如需保留樹狀分類，建議適應
+    # Hugo 的設計理念——分割槽。
+
+    categoryBy = "sections"
+    # 注意：如果你設定為 `sections`，請務必將
+    #      此配置檔案中的類別（taxonomies）中
+    #      的 `categories` 刪除，不然分類頁
+    #      面會失效。同時，你還需要自己新建一個
+    #      `content/categories/_index.md`
+    #      檔案。
+
+
+    ######################################
+    # 分類頁面
+
+    # 是否開啟樹狀佈局
+    enableTree = true
+    # 注意：如果你設定 categoryBy 為
+    # `sections`，則無法關閉樹狀佈局
+
+    # 是否顯示文章標題
+    displayPosts = true
+
+    # 是否顯示每一分類下的文章數
+    displayPostsCount = true
+
+    # 設定一個非負數來限制每一分類下展示的文章數
+    limitPostsLimit = -1
+
+
+    ######################################
+    # 標籤頁面
+
+    # 是否開啟標籤雲
+    enableTagCloud = true
+    # 字號單位
+    fontUnit = "em"
+    # 最大字號
+    largestFontSize = 2.5
+    # 最小字號
+    smallestFontSize = 1
+
+
+    ######################################
+    # 列表頁面
+
+    # 寬度
+    listWidth = 36
+    # 說明：如果留空（""），則用 42 作為預設值
+    #      單位：em
+
+    # 是否顯示列表標題
+    displayListTitle = true
+
+    # 日期的格式
+    listDateFormat = "2006-01-02"
+    # 注意：請遵循格式 https://gohugo.io/functions/format/
+
+    # 日期的位置
+    listDatePosition = "right"
+    # 說明：left（左邊）或 right（右邊）
+
+    # 是否按月份分隔列表
+    groupByMonth = false
+
+    # 是否開啟十二生肖
+    chineseZodiac = true
+
+    # 是否翻譯年份（僅對年份標題有效）
+    i18nYear = false
+    # 是否翻譯月份（僅對月份標題有效）
+    i18nMonth = false
+
+
+    ######################################
+    # 類別列表頁面
+
+    # 說明：對於分類頁面，你可以設定 `enableTree`
+    #      為 false 以得到一個普通的類別列表頁
+    #      面；對於標籤頁面，你可以設定
+    #      `enableTagCloud` 為 false 以得到
+    #      一個普通的類別列表頁面。
+
+    # 是否顯示每一類別項下的文章數
+    displayTaxonomyTermCount = true
+
+    # 設定一個非負數來限制每一類別項下展示的文章數
+    limitEntriesLimit = -1
+
+
+    ######################################
+    # 文章分割槽範圍
+
+    # 說明：分割槽的名字即站點的 content 目錄下
+    #      的資料夾的名字。
+
+    mainSections = ["life", "tech"]
+
+
+    ######################################
+    # Atom & RSS
+
+    # 是否包括全文內容
+    includeContent = true
+    # 說明：如果否，則只會包含文章的摘要。關於摘
+    #      要，Hugo 能按你設定的字數限制自動截
+    #      取，你也可以在文章中透過
+    #      `<!--more-->`（沒有空格）手動控制，
+    #      或者在文章的 Front Matter 中透過
+    #      `summary` 手動指定。其中，應用的優
+    #      先級順序：手動指定 > 手動控制 > 自
+    #      動擷取。還需要注意的是，在 MemE 主
+    #      題自定義的 Atom 和 RSS 的模板中，
+    #      有一個比手動指定更高的優先順序——
+    #      Front Matter 中的 `description`。
+
+
+    ######################################
+    # 深色模式
+
+    # 是否開啟
+    enableDarkMode = true
+
+    # 預設模式
+    defaultTheme = "light"
+    # 說明：light（淺色模式）或 dark（深色模式）
+
+    # 是否隱藏模式切換開關
+    hideThemeToggle = false
+    # 是否在首頁隱藏模式切換開關
+    hideThemeToggleInHome = false
+    # 說明：如果開啟了深色模式，即使你隱藏了開關，
+    #      你的讀者依然可能以深色模式閱讀你的博
+    #      客，如果該讀者的系統設定為深色模式的
+    #      話。類似，如果你開啟深色模式並將預設
+    #      模式修改為它，即使你隱藏開關，你的讀
+    #      者依然可能以淺色模式模式閱讀你的部落格。
+    #      除非，你開啟下方這個選項。
+
+    overrideSystemPreferences = false
+
+
+    ######################################
+    # 網頁應用
+
+    # 說明：前往 https://realfavicongenerator.net/
+    #      生成相關圖示和檔案，下載後解壓，僅保留
+    #      android-chrome-512x512.png、
+    #      apple-touch-icon.png、
+    #      mstile-150x150.png、
+    #      safari-pinned-tab.svg、favicon.ico、
+    #      site.webmanifest 這些檔案，刪除其餘。
+    #      然後將這些檔案移動到 ~/blog/static/icons/
+    #      目錄下，再將 favicon.ico、site.webmanifest
+    #      移動到 ~/blog/static/ 目錄下，
+    #      最後將 site.webmanifest 重新命名為
+    #      manifest.json，並檢查和修改相關內容
+    #      （圖示的路徑）。
+
+    themeColor = "#fff"
+    themeColorDark = "#16171d"
+    safariMaskColor = "#fff"
+    msApplicationTileColor = "#fff"
+
+
+    ######################################
+    # 網頁頭部元資料、搜尋引擎最佳化（SEO）、社交網路發現
+
+    jsonLD = true
+    openGraph = true
+    twitterCards = true
+    # 注意：如果你設定 twitterCards 為 `true`，
+    #      請務必開啟 openGraph。否則，網頁的
+    #      Twitter Cards 資訊將會不完整。
+
+    # 是否自動探測圖片
+    autoDetectImages = true
+    # 說明：建議開啟，否則，你必須在文章的 Front
+    #      Matter 中手動指定 `images`，不然，
+    #      你在社交網路或 APP 上分享的連結將無
+    #      法顯示帶大圖的摘要檢視。
+
+
+    ######################################
+    # Service Worker
+
+    # 說明：僅在生產環境（production）下渲染
+
+    enableServiceWorker = true
+
+
+    ######################################
+    # KaTeX 公式支援（包括化學方程式）
+
+    # 是否開啟（全域性設定）
+    enableKaTeX = false
+    # 說明：文章的 Front Matter 中的 `katex`
+    #      的優先順序高於此處
+
+
+    ######################################
+    # MathJax 公式支援（包括化學方程式）
+
+    # 是否開啟（全域性設定）
+    enableMathJax = false
+    # 說明：文章的 Front Matter 中的 `mathjax`
+    #      的優先順序高於此處
+
+    # 是否禁用 MathJax 的右鍵選單
+    disableMathJaxMenu = false
+
+
+    ######################################
+    # Mermaid (https://github.com/mermaid-js/mermaid)
+
+    # 是否開啟（全域性設定）
+    enableMermaid = false
+    # 說明：文章的 Front Matter 中的 `mermaid`
+    #      的優先順序高於此處
+
+    mermaidTheme = 'default'
+    mermaidThemeDark = 'dark'
+
+
+    ######################################
+    # 評論
+
+    # 說明：僅在生產環境（production）下渲染
+
+    # 是否開啟（全域性設定）
+    enableComments = false
+    # 說明：文章的 Front Matter 中的 `comments`
+    #      的優先順序高於此處
+
+    # 直接加載評論，不需要手動點擊按鈕加載
+    autoLoadComments = false
+
+    ## Disqus
+    enableDisqus = false
+    disqusShortname = ""
+
+    ## Valine
+    enableValine = false
+    valineAppId = ""
+    valineAppKey = ""
+    valinePlaceholder = "Just go go"
+    valinePath = ""
+    valineAvatar = "mm"
+    valineMeta = ["nick", "mail", "link"]
+    valinePageSize = 10
+    valineLang = "zh-cn"
+    valineVisitor = false
+    valineHighlight = true
+    valineAvatarForce = false
+    valineRecordIP = false
+    valineServerURLs = ""
+    valineEmojiCDN = ""
+    valineEmojiMaps = {}
+    valineEnableQQ = false
+    valineRequiredFields = []
+    # 說明：https://valine.js.org/
+
+    ## Utterances
+    enableUtterances = false
+    utterancesRepo = ""
+    utterancesIssueTerm = "pathname"
+    utterancesTheme = "github-light"
+    utterancesThemeDark = "photon-dark"
+    utterancesLabel = ""
+    # 說明：https://utteranc.es/
+
+    ## Gitalk
+    enableGitalk = false
+    gitalkClientID = "your_client_id"
+    gitalkClientSecret = "your_client_secret"
+    gitalkRepo = "your_repository"
+    gitalkOwner = "your_gitalk_owner"
+    gitalkAdmin = ["your_gitalk_admin"]
+
+    # 1. default (`location.href`)
+    # 2. pathname (`location.pathname`)
+    # 3. hash (hash_filepath)
+    # 4. custom:your_gitalk_id ("your_gitalk_id")
+    gitalkID = "pathname"
+
+    gitalkNumber = -1
+    gitalkLables = ["Gitalk"]
+
+    # 1. default (`document.title`)
+    # 2. custom:your_gitalk_title ("your_gitalk_title")
+    gitalkTitle = "default"
+
+    # 1. default (`location.href` + header.meta[description])
+    # 2. href (`location.href`)
+    # 3. custom:your_gitalk_body ("your_gitalk_body")
+    gitalkBody = "default"
+
+    # 1. default (`navigator.language || navigator.userLanguage`)
+    # 2. Support [en, zh-CN, zh-TW, es-ES, fr, ru, de, pl, ko, fa, ja]
+    gitalkLanguage = "zh-TW"
+
+    gitalkDistractionFreeMode = false
+    gitalkPerPage = 10
+    gitalkPagerDirection = "last"
+    gitalkCreateIssueManually = false
+    gitalkProxy = "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"
+    gitalkStaggerDelayBy = 150
+    gitalkAppearAnimation = "accordionVertical"
+    gitalkEnterAnimation = "accordionVertical"
+    gitalkLeaveAnimation = "accordionVertical"
+    gitalkEnableHotKey = true
+    # 說明：https://github.com/gitalk/gitalk
+
+    ## Giscus
+    enableGiscus = false
+    giscusRepo = "[ENTER repo/you/want HERE]"
+    giscusRepoId = "[ENTER REPO ID HERE]"
+    giscusCategory = "[ENTER CATEGORY NAME HERE]"
+    giscusCategoryId = "[ENTER CATEGORY ID HERE]"
+    giscusMapping = "pathname"
+    giscusStrict = false
+    giscusReactionsEnabled = true
+    giscusEmitMetaData = false
+    giscusInputPosition = "top"
+    giscusTheme = "light"
+    giscusThemeDark = "dark"
+    giscusLang = "zh-TW"
+    # 說明：https://giscus.app/zh-TW
+
+    # Remark42
+    enableRemark42 = false
+    remark42Host = ""
+    remark42SiteId = "remark"
+    remark42Url = ""
+    remark42Components = ["embed"]
+    remark42MaxShownComments = 15
+    remark42MaxLastComments = 15
+    remark42Theme = "light"
+    remark42PageTitle = ""
+    remark42Locale = "zh-tw"
+    remark42ShowEmailSubscription = true
+    remark42ShowRssSubscription = true
+    remark42SimpleView = false
+    remark42NoFooter = false
+    # 說明：https://remark42.com/docs/configuration/frontend/
+
+
+    ######################################
+    # Google Analytics
+
+    # 說明：僅在生產環境（production）下渲染
+
+    enableGoogleAnalytics = false
+
+    # 跟蹤程式碼的型別
+    trackingCodeType = "gtag"
+    # 說明：gtag 或 analytics
+
+    trackingID = "UA-100434861-1"
+
+
+    ######################################
+    # Google Site Verification
+
+    googleSiteVerification = ""
+
+
+    ######################################
+    # Google AdSense
+
+    # 說明：僅在生產環境（production）下渲染
+
+    googleAdClient = ""
+
+    ## 自動廣告
+    enableGoogleAutoAds = false
+
+    ## 廣告單元
+    enableGoogleAdUnits = false
+    googleAdSlot = ""
+    googleAdSlotInArticle = ""
+    googleAdSlotAutoRelaxed = ""
+
+
+    ######################################
+    # Yandex.Metrika
+    # https://metrika.yandex.ru/
+
+    # 說明：僅在生產環境（production）下渲染
+
+    yandexMetrikaId = ""
+
+
+    ######################################
+    # 文章設定
+
+    # 超連結的顏色變化持續時間（單位：秒）
+    duration = 0.5
+
+    # 淺色模式的主色
+    primaryColorLight = "220, 90%, 56%"
+    # 深色模式的主色
+    primaryColorDark = "201, 65%, 62%"
+    # 注意：只支援 HSL 顏色值
+
+    # 文章的內容寬度
+    postWidth = 36
+    # 說明：如果留空（""），則用 42 作為預設值
+    #      單位：em
+
+    # 文章是否為原創（全域性設定）
+    original = true
+    # 說明：會影響文章的作者資訊和版權資訊
+    #      文章的 Front Matter 中的 `original`
+    #      的優先順序高於此處
+
+
+    ######################################
+    # 文章描述
+
+    # 是否顯示
+    displayPostDescription = true
+
+
+    ######################################
+    # 文章元資訊
+
+    # 是否開啟（全域性設定）
+    enablePostMeta = false
+    # 說明：文章的 Front Matter 中的 `meta`
+    #      的優先順序高於此處
+
+    # 是否在首頁開啟
+    enablePostMetaInHome = false
+    # 說明：僅對「文章摘要」和「普通頁面」
+    #      首頁佈局有效
+
+    # 日期格式
+    postMetaDateFormat = "2006.1.2"
+    # 注意：請遵循格式 https://gohugo.io/functions/format/
+
+    # 是否顯示釋出時間
+    displayPublishedDate = true
+    # 釋出時間的圖示
+    publishedDateIcon = "calendar-alt"
+
+    # 是否顯示修改時間
+    displayModifiedDate = true
+    # 修改時間的圖示
+    modifiedDateIcon = "calendar-check"
+
+    # 是否顯示過期時間
+    displayExpiredDate = true
+    # 過期時間的圖示
+    expiredDateIcon = "calendar-times"
+
+    # 是否顯示分類
+    displayCategory = true
+    # 分類的圖示
+    categoryIcon = "folder"
+    # 分類之間的分隔符
+    categoryDelimiter = "/"
+
+    # 是否顯示字數統計
+    displayWordCount = true
+    # 字數統計的圖示
+    wordCountIcon = "pencil-alt"
+
+    # 是否顯示閱讀時長
+    displayReadingTime = true
+    # 閱讀時長的圖示
+    readingTimeIcon = "clock"
+
+    # 是否顯示不蒜子頁面瀏覽量
+    displayBusuanziPagePV = false
+    # 不蒜子頁面瀏覽量的圖示
+    busuanziPagePVIcon = "eye"
+    # 說明：僅在生產環境（production）下渲染
+    #      首頁暫不支援
+    #      https://busuanzi.ibruce.info/
+
+
+    ######################################
+    # Markdown 相關
+
+    # 在新標籤頁開啟外鏈？
+    hrefTargetBlank = true
+
+
+    ######################################
+    # 文章目錄
+
+    # 是否開啟（全域性設定）
+    enableTOC = false
+    # 說明：文章的 Front Matter 中的 `toc`
+    #      的優先順序高於此處
+
+    # 是否顯示目錄標題
+    displayTOCTitle = true
+
+    # 是否顯示數字（全域性設定）
+    displayTOCNum = true
+    # 說明：文章的 Front Matter 中的 `tocNum`
+    #      的優先順序高於此處
+
+    # 是否連結文章的分節標題到目錄
+    linkHeadingsToTOC = true
+
+
+    ######################################
+    # 分節標題錨點
+
+    # 是否開啟（全域性設定）
+    enableHeadingsAnchor = true
+    # 說明：文章的 Front Matter 中的 `anchor`
+    #      的優先順序高於此處
+
+    # 分節標題的級別範圍
+    headingsOpt = "1-6"
+    # 說明：正則格式，預設 1-6，即 1|2|3|4|5|6，
+    #      即 h1 到 h6。
+
+    # 錨點符號
+    anchorSymbol = "#"
+    # 說明：錨點圖示的優先順序高於錨點符號
+    #      預設值：§
+
+    # 錨點圖示
+    anchorIcon = ""
+    # 說明：留空（""）則回退到錨點符號
+
+    # 是否開啟錨點連結
+    enableAnchorLink = true
+
+    # 是否自動隱藏錨點
+    enableAnchorAutoHide = true
+
+
+    ######################################
+    # 說明文字
+
+    # 是否開啟
+    enableCaption = true
+
+    # 說明文字的字首
+    captionPrefix = "◎ "
+
+
+    ######################################
+    # 圖片外鏈
+
+    # 說明：僅在生產環境（production）下渲染
+    #
+    #      只支援相對於網站根目錄的絕對連結
+    #      比如：/images/meme.jpg
+    #      (~/blog/static/images/meme.jpg)
+
+    # 是否開啟
+    enableImageHost = false
+
+    # 圖片外鏈地址
+    imageHostURL = "https://example.com/"
+
+    # 是否將 HTML 的頭部元資料中的圖片連結也替換為外鏈
+    headAlso = false
+
+
+    ######################################
+    # 影片外鏈
+
+    # 說明：僅在生產環境（production）下渲染
+    #
+    #      只支援相對於網站根目錄的絕對連結
+    #      比如：/videos/meme.mp4
+    #
+    #      且你新增的 HTML 程式碼必需以以下開頭：
+    #      `<video src="`
+
+    # 是否開啟
+    enableVideoHost = true
+
+    # 影片外鏈地址
+    videoHostURL = "https://gateway.pinata.cloud/ipfs/"
+
+
+    ######################################
+    # 腳註
+
+    # 是否用方括號包裹腳註的引用序號
+    squareBrackets = true
+
+    # 替換腳註的返回連結中的文字為圖示
+    footnoteReturnLinkIcon = ""
+    # 說明：如果不為空（""），則會用圖示替換
+    #      `footnoteReturnLinkContents`
+
+    # 是否自行插入分隔線
+    insertHrBySelf = true
+    # 說明：如果是，則會將自動生成的分隔線刪除。
+    #      實際上，你自己新增的分隔線會被刪除。
+    #      如果你喜歡在 Markdown 中手動插入
+    #      `---` 以將文章的正文內容與腳註內容
+    #      分隔開來，那麼這項設定將會非常有用。
+
+
+    ######################################
+    # 滾動條
+    customizeScrollbar = false
+
+
+    ######################################
+    # 字型排版
+
+    ######################################
+    ## 字型
+
+    # 說明：任何一項留空（""），瀏覽器都會回退到
+    #      主體字型 `fontFamilyBody`，故沒必
+    #      要全部設定。此外，如果你的品牌欄用的
+    #      SVG，則可留空（""）品牌欄字型。
+
+    # 品牌欄
+    fontFamilySiteBrand = ""
+    # 選單欄
+    fontFamilyMenu = ""
+    # 文章標題、文章副標題、列表標題、列表的年份和月份標題、相關文章標題、文章上下篇標題、表格的表頭、定義列表中的術語
+    fontFamilyTitle = "'Noto Serif TC', 'Noto Serif SC', 'Amstelvar', serif"
+    # 分節標題、目錄標題
+    fontFamilyHeadings = "'Noto Serif TC', 'Noto Serif SC', 'Amstelvar', serif"
+    # 程式碼、上標、文章元資訊、文章更新徽章、文章的 Git 版本資訊、極簡頁尾、不蒜子站點瀏覽計數
+    fontFamilyCode = "'Source Code Pro', 'Noto Serif TC', 'Noto Serif SC', monospace"
+    # 引用
+    fontFamilyQuote = ""
+    # 文章目錄
+    fontFamilyTOC = ""
+    # 說明文字
+    fontFamilyCaption = ""
+    # 頁尾
+    fontFamilyFooter = "'Source Code Pro', 'Noto Serif TC', 'Noto Serif SC', monospace"
+    # 主體
+    fontFamilyBody = "'Amstelvar', 'Noto Serif TC', 'Noto Serif SC', serif"
+
+    # 網路字型連結
+    fontsLink = "https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;700&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@700&display=swap"
+    # 說明：要想讀者一定體驗到你設定的字型，最好
+    #      採用網路字型。MemE 主題目前僅支援
+    #      Google Fonts 的連結，請前往
+    #      https://fonts.google.com/ 獲取。
+    #      此項留空（""），則不會採用網路字型。
+
+    ######################################
+    ## 字號（單位：px）
+
+    fontSize = 16
+
+    ######################################
+    ## 製表符的寬度
+
+    tabSize = 4
+
+    ######################################
+    ## 行間距
+
+    lineHeight = 2
+    # 說明：只會應用到文章的段落和目錄
+
+    ######################################
+    ## 段首縮排
+
+    # 是否開啟
+    enableParagraphIndent = true
+
+    # 是否縮排第一段（全域性設定）
+    indentFirstParagraph = false
+    # 說明：文章的 Front Matter 中的 `indentFirstParagraph`
+    #      的優先順序高於此處
+
+    # 分段樣式（全域性設定）
+    paragraphStyle = "margin"
+    # 說明：段間距式（margin）或段首縮排（indent）
+    #      文章的 Front Matter 中的 `indent`
+    #      的優先順序高於此處
+
+    ######################################
+    ## 兩端對齊
+
+    # 是否開啟（全域性設定）
+    enableJustify = true
+    # 說明：文章的 Front Matter 中的 `align`
+    #      的優先順序高於此處
+
+    ######################################
+    ## 首字下沉
+
+    # 是否開啟（全域性設定）
+    enableDropCap = true
+    # 說明：文章的 Front Matter 中的 `dropCap`
+    #      的優先順序高於此處
+
+    # 是否在每一分隔線之後首字下沉（全域性設定）
+    enableDropCapAfterHr = false
+    # 說明：文章的 Front Matter 中的 `dropCapAfterHr`
+    #      的優先順序高於此處
+
+    # 是否刪除首字下沉前的分隔線（全域性設定）
+    deleteHrBeforeDropCap = false
+    # 說明：文章的 Front Matter 中的 `deleteHrBeforeDropCap`
+    #      的優先順序高於此處
+
+    ######################################
+    ## 大型小寫（英文）
+
+    # 是否開啟（全域性設定）
+    enableSmallCaps = false
+    # 說明：只會應用到分節標題和目錄標題
+    #      文章的 Front Matter 中的 `smallCaps`
+    #      的優先順序高於此處
+
+    ######################################
+    ## 著重號
+
+    # 說明：MemE 主題自創的新 Markdown 語法
+    #      `..文字..`
+
+    # 是否開啟
+    enableEmphasisPoint = true
+
+    ######################################
+    ## 中文標點符號字形糾正
+
+    # 是否開啟
+    enableChinesePunctuationGlyphCorrection = true
+
+
+    ######################################
+    # 文章版權
+
+    # 是否開啟
+    enablePostCopyright = true
+
+    # 是否顯示（全域性設定）
+    displayPostCopyright = false
+    # 說明：文章的 Front Matter 中的 `displayCopyright`
+    #      的優先順序高於此處
+
+
+    ######################################
+    # 文章更新徽章
+
+    # 是否開啟
+    enablePostUpdatedBadge = true
+
+    # 是否顯示（全域性設定）
+    displayUpdatedBadge = false
+    # 說明：文章的 Front Matter 中的 `badge`
+    #      的優先順序高於此處
+
+    # 是否新增 `title`
+    enableBadgeTitle = true
+    # `title` 的字首
+    badgeTitlePrefix = "Updated @ "
+
+
+    ######################################
+    # 文章的 Git 版本資訊
+
+    # 是否開啟
+    enablePostGitInfo = true
+
+    # 是否顯示（全域性設定）
+    displayPostGitInfo = false
+    # 說明：文章的 Front Matter 中的 `gitinfo`
+    #      的優先順序高於此處
+
+    # 倉庫地址
+    repoURL = "https://github.com/reuixiy/io-oi.me"
+    # 編輯地址
+    repoEditURL = "https://github.com/reuixiy/io-oi.me/blob/main"
+    repoEditURLSuffix = "?plain=1"
+
+    # Git 的圖示
+    gitIcon = "code-branch"
+    # 是否顯示改動雜湊
+    displayCommitHash = true
+
+    # 是否顯示改動資訊
+    displayCommitMessage = true
+    # 改動資訊的圖示
+    msgIcon = "info"
+
+    # 是否顯示反饋連結
+    displayFeedback = true
+    # 反饋連結的圖示
+    feedbackIcon = "question"
+    # 反饋連結的文字
+    feedbackText = "Feedback"
+
+    # 是否顯示編輯連結
+    displayEditLink = true
+    # 編輯連結的圖示
+    editIcon = "edit"
+    # 編輯連結的文字
+    editText = "Edit Me?"
+
+
+    ######################################
+    # 文章分享
+
+    # 是否開啟
+    enablePostShare = false
+
+    # 是否顯示（全域性設定）
+    displayPostShare = false
+    # 說明：文章的 Front Matter 中的 `share`
+    #      的優先順序高於此處
+
+    displayShareOnText = false
+
+    postShareItems = ["facebook", "mastodon", "fediverse", "twitter", "linkedin", "telegram", "weibo", "douban", "qq", "qzone", "pocket", "hackernews", "qrcode", "email"]
+
+    # 從網路取得 Fediverse 實例清單用於輸入建議
+    fetchFediverseInstances = false
+    # 說明：當開啟 mastodon 或 fediverse 分享項
+    #      時建議開啟。開啟後建置時，資料需要從網
+    #      路下載，會帶來額外的建置時間。
+
+
+    ######################################
+    # 相關文章
+
+    # 是否開啟
+    enableRelatedPosts = false
+
+    # 是否顯示（全域性設定）
+    displayRelatedPosts = false
+    # 說明：文章的 Front Matter 中的 `related`
+    #      的優先順序高於此處
+
+    # 相關文章數
+    relatedPostsNumber = 5
+
+    # 相關文章標題右邊的圖示
+    relatedPostsIcon = "plus-circle"
+
+
+    ######################################
+    # 文章的標籤
+
+    # 是否開啟
+    enablePostTags = false
+
+    # 標籤的圖示
+    postTagsIcon = "tag"
+
+
+    ######################################
+    # 文章上下篇
+
+    # 說明：在 MemE 主題中，文章上下篇是從空間
+    #      位置角度設計的，而不是像大多數其它主
+    #      題所做的那樣——從時間角度設計。因此，
+    #      如果你點選左邊的上篇，跳轉的是一篇更
+    #      新的文章；如果你點選右邊的下篇，跳轉
+    #      的是一篇更舊的文章。
+
+    # 是否開啟
+    enablePostNav = false
+
+    # 是否僅限於相同的文章分割槽
+    postNavInSection = true
+
+
+    ######################################
+    # 極簡頁尾
+
+    # 是否開啟
+    enableMinimalFooter = true
+    enableVerticalBarStructure = true
+    # 說明：如果開啟此項，顯示在右邊的部類或分割槽
+    #      將會包含全部的第一級部類或分割槽，並且
+    #      以豎線（|）分隔開來。
+
+    # 是否開啟關於頁面的極簡頁尾
+    enableAboutPageMinimalFooter = true
+
+
+    ######################################
+    # 返回頂部按鈕
+
+    # 是否開啟
+    enableBackToTop = false
+
+    # 是否開啟自動隱藏
+    enableBackToTopAutoHide = true
+
+    # 是否在首頁顯示
+    displayBackToTopInHome = false
+
+    # 是否在移動端顯示
+    displayBackToTopOnMobile = false
+
+    # 按鈕圖示
+    backToTopIcon = "arrow-up"
+
+
+    ######################################
+    # 頁尾
+
+    # 是否開啟
+    enableFooter = true
+
+    # 是否顯示
+    displayFooter = false
+
+    # 是否在首頁顯示
+    displayFooterInHome = true
+
+    displayCopyleftSymbol = false
+    # 是否顯示版權符號（©）
+    displayCopyrightSymbol = true
+
+    # 是否顯示站點的建立年份
+    displaySiteCreatedYear = true
+
+    # 年份與作者之間的圖示，留空（""）則無
+    iconBetweenYearAndAuthor = ""
+    # 圖示顏色
+    iconColor = "#f06292"
+    # 是否開啟圖示的跳動效果
+    iconAnimation = true
+
+    # 是否顯示站點的作者名稱
+    displaySiteAuthorName = false
+
+    # 是否顯示 Hugo 和 MemE 的連結
+    displayPoweredBy = false
+
+    # 是否顯示站點的版權資訊
+    displaySiteCopyright = false
+
+    # 自定義頁尾（支援 Markdown）
+    # customFooter = """<img alt="🇺🇸 🇹🇼 🇺🇦" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI2NiIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzMiAyNiI+PHBhdGggZmlsbD0iI2IyMjMzNCIgZD0iTTM1LjQ0NSAyQzM0Ljc1Mi44MDkgMzMuNDc3IDAgMzIgMEgxOHYyWk0wIDIwaDM2djJIMFptMTgtOGgxOHYySDE4Wm0wLTRoMTh2MkgxOFpNMCAxNmgzNnYySDBabTQgMTBoMjhjMS40NzcgMCAyLjc1Mi0uODA5IDMuNDQ1LTJILjU1NWMuNjkzIDEuMTkxIDEuOTY4IDIgMy40NDUgMlpNMTggNGgxOHYySDE4WiIvPjxwYXRoIGZpbGw9IiNlZWUiIGQ9Ik0uMDY4IDIyLjY3OWMuMDE3LjA5My4wMzYuMTg2LjA1OS4yNzcuMDI2LjEwMS4wNTguMTk4LjA5Mi4yOTYuMDg5LjI1OS4xOTcuNTA5LjMzMy43NDNMLjU1NSAyNGgzNC44OWwuMDAyLS4wMDRhNC4yMiA0LjIyIDAgMCAwIC4zMzItLjc0MSAzLjc1IDMuNzUgMCAwIDAgLjE1Mi0uNTc2Yy4wNDEtLjIyLjA2OS0uNDQ2LjA2OS0uNjc5SDBjMCAuMjMzLjAyOC40NTguMDY4LjY3OXpNMCAxOGgzNnYySDBabTAtNHYyaDM2di0ySDE4Wm0xOC00aDE4djJIMThabTAtNGgxOHYySDE4Wk0wIDRabS41NTUtMi0uMDAzLjAwNVpNLjEyOCAzLjA0NGMuMDI1LS4xMDIuMDYtLjE5OS4wOTItLjI5N2EzLjc4IDMuNzggMCAwIDAtLjA5Mi4yOTdaTTE4IDRoMThjMC0uMjMzLS4wMjgtLjQ1OS0uMDY5LS42OGEzLjYwNiAzLjYwNiAwIDAgMC0uMTUzLS41NzZBNC4yMSA0LjIxIDAgMCAwIDM1LjQ0NSAySDE4WiIvPjxwYXRoIGZpbGw9IiMzYzNiNmUiIGQ9Ik0xOCAwSDRhNCA0IDAgMCAwLTQgNHYxMGgxOHoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJtMi4wMDEgMi43MjYuNjE4LjQ0OS0uMjM2LjcyNUwzIDMuNDUybC42MTguNDQ4LS4yMzYtLjcyNUw0IDIuNzI2aC0uNzY0TDMgMmwtLjIzNS43MjZabTIgMiAuNjE4LjQ0OS0uMjM2LjcyNUw1IDUuNDUybC42MTguNDQ4LS4yMzYtLjcyNUw2IDQuNzI2aC0uNzY0TDUgNGwtLjIzNS43MjZabTQgMCAuNjE4LjQ0OS0uMjM2LjcyNUw5IDUuNDUybC42MTguNDQ4LS4yMzYtLjcyNS42MTgtLjQ0OWgtLjc2NEw5IDRsLS4yMzUuNzI2Wm00IDAgLjYxOC40NDktLjIzNi43MjUuNjE3LS40NDguNjE4LjQ0OC0uMjM2LS43MjUuNjE4LS40NDloLS43NjRMMTMgNGwtLjIzNS43MjZabS04IDQgLjYxOC40NDktLjIzNi43MjVMNSA5LjQ1MmwuNjE4LjQ0OC0uMjM2LS43MjVMNiA4LjcyNmgtLjc2NEw1IDhsLS4yMzUuNzI2Wm00IDAgLjYxOC40NDktLjIzNi43MjVMOSA5LjQ1MmwuNjE4LjQ0OC0uMjM2LS43MjUuNjE4LS40NDloLS43NjRMOSA4bC0uMjM1LjcyNlptNCAwIC42MTguNDQ5LS4yMzYuNzI1LjYxNy0uNDQ4LjYxOC40NDgtLjIzNi0uNzI1LjYxOC0uNDQ5aC0uNzY0TDEzIDhsLS4yMzUuNzI2Wm0tNi02IC42MTguNDQ5LS4yMzYuNzI1TDcgMy40NTJsLjYxOC40NDgtLjIzNi0uNzI1TDggMi43MjZoLS43NjRMNyAybC0uMjM1LjcyNlptNCAwIC42MTguNDQ5LS4yMzYuNzI1LjYxNy0uNDQ4LjYxOC40NDgtLjIzNi0uNzI1LjYxOC0uNDQ5aC0uNzY0TDExIDJsLS4yMzUuNzI2Wm00IDAgLjYxOC40NDktLjIzNi43MjUuNjE3LS40NDguNjE4LjQ0OC0uMjM2LS43MjUuNjE4LS40NDloLS43NjRMMTUgMmwtLjIzNS43MjZabS0xMiA0IC42MTguNDQ5LS4yMzYuNzI1TDMgNy40NTJsLjYxOC40NDgtLjIzNi0uNzI1TDQgNi43MjZoLS43NjRMMyA2bC0uMjM1LjcyNlpNNi4zODMgNy45IDcgNy40NTJsLjYxOC40NDgtLjIzNi0uNzI1TDggNi43MjZoLS43NjRMNyA2bC0uMjM1LjcyNmgtLjc2NGwuNjE4LjQ0OVptMy42MTgtMS4xNzQuNjE4LjQ0OS0uMjM2LjcyNS42MTctLjQ0OC42MTguNDQ4LS4yMzYtLjcyNS42MTgtLjQ0OWgtLjc2NEwxMSA2bC0uMjM1LjcyNlptNCAwIC42MTguNDQ5LS4yMzYuNzI1LjYxNy0uNDQ4LjYxOC40NDgtLjIzNi0uNzI1LjYxOC0uNDQ5aC0uNzY0TDE1IDZsLS4yMzUuNzI2Wm0tMTIgNCAuNjE4LjQ0OS0uMjM2LjcyNS42MTctLjQ0OC42MTguNDQ4LS4yMzYtLjcyNS42MTgtLjQ0OWgtLjc2NEwzIDEwbC0uMjM1LjcyNlpNNi4zODMgMTEuOSA3IDExLjQ1MmwuNjE4LjQ0OC0uMjM2LS43MjUuNjE4LS40NDloLS43NjRMNyAxMGwtLjIzNS43MjZoLS43NjRsLjYxOC40NDl6bTMuNjE4LTEuMTc0LjYxOC40NDktLjIzNi43MjUuNjE3LS40NDguNjE4LjQ0OC0uMjM2LS43MjUuNjE4LS40NDloLS43NjRMMTEgMTBsLS4yMzUuNzI2Wm00IDAgLjYxOC40NDktLjIzNi43MjUuNjE3LS40NDguNjE4LjQ0OC0uMjM2LS43MjUuNjE4LS40NDloLS43NjRMMTUgMTBsLS4yMzUuNzI2WiIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4IC01KSI+PHBhdGggZmlsbD0iI2ZlMDAwMCIgZD0iTTMyIDVIMTd2MTNIMHY5YTQgNCAwIDAgMCA0IDRoMjhhNCA0IDAgMCAwIDQtNFY5YTQgNCAwIDAgMC00LTRaIi8+PHBhdGggZmlsbD0iIzAwMDA5NSIgZD0iTTE3IDVINGE0IDQgMCAwIDAtNCA0djloMTd6bS02LjA2MyA0LjYxIDIuMDM1LS41NDgtMS40OTEgMS40ODdhMi44ODEgMi44ODEgMCAwIDAtLjU0NC0uOTM5Wm0uMjUxIDEuODlhMi40MzggMi40MzggMCAxIDEtNC44NzYgMCAyLjQzOCAyLjQzOCAwIDAgMSA0Ljg3NiAwem0wLTQuMjIyLS41NDggMi4wMzVhMi44NzEgMi44NzEgMCAwIDAtLjkzOS0uNTQ0Wk04Ljc1IDYuNjI1bC41NDIgMi4wMzRhMi45MyAyLjkzIDAgMCAwLS41NDItLjA1MiAyLjkzIDIuOTMgMCAwIDAtLjU0Mi4wNTJabS0uOTUxIDIuMTQ0YTIuODgxIDIuODgxIDAgMCAwLS45MzkuNTQ0bC0uNTQ4LTIuMDM1Wm0tMS4yMzYuODQxYTIuODcxIDIuODcxIDAgMCAwLS41NDQuOTM5TDQuNTI4IDkuMDYyWm0tLjY1NCAxLjM0OGEyLjg1NCAyLjg1NCAwIDAgMCAwIDEuMDg0TDMuODc1IDExLjVabS4xMSAxLjQ5MmMuMTIxLjM0OC4zMDguNjY2LjU0NC45MzlsLTIuMDM1LjU0OHptLjI5MyAzLjI3Mi41NDgtMi4wMzVjLjI3My4yMzYuNTkxLjQyMy45MzkuNTQ0em0yLjQzOC42NTMtLjU0Mi0yLjAzNGEyLjg1NCAyLjg1NCAwIDAgMCAxLjA4NCAwem0uOTUxLTIuMTQ0Yy4zNDgtLjEyMS42NjYtLjMwOC45MzktLjU0NGwuNTQ4IDIuMDM1em0xLjIzNi0uODQxYy4yMzctLjI3My40MjMtLjU5MS41NDQtLjkzOWwxLjQ5MSAxLjQ4N3ptLjY1NC0xLjM0OGEyLjg1NCAyLjg1NCAwIDAgMCAwLTEuMDg0bDIuMDM0LjU0MnoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNOS4yOTIgOC42NTkgOC43NSA2LjYyNWwtLjU0MiAyLjAzNGEyLjkzIDIuOTMgMCAwIDEgLjU0Mi0uMDUyYy4xODUgMCAuMzY3LjAxOS41NDIuMDUyek01Ljg1NyAxMS41YzAtLjE4NS4wMTgtLjM2Ny4wNTItLjU0MmwtMi4wMzQuNTQyIDIuMDM0LjU0MmEyLjkzIDIuOTMgMCAwIDEtLjA1Mi0uNTQyWm0yLjM1MSAyLjg0MS41NDIgMi4wMzQuNTQyLTIuMDM0YTIuODU0IDIuODU0IDAgMCAxLTEuMDg0IDB6bTMuNDM1LTIuODQxYzAgLjE4NS0uMDE4LjM2Ny0uMDUyLjU0MmwyLjAzNC0uNTQyLTIuMDM0LS41NDJjLjAzMy4xNzUuMDUyLjM1Ny4wNTIuNTQyem0tLjQ1NS00LjIyMkw5LjcwMSA4Ljc2OWMuMzQ4LjEyMi42NjYuMzA4LjkzOS41NDR6bS0uMjUxIDYuMTEyIDIuMDM1LjU0OC0xLjQ5MS0xLjQ4N2EyLjg4MSAyLjg4MSAwIDAgMS0uNTQ0LjkzOXptLTQuNjI1IDIuMzMyIDEuNDg3LTEuNDkxYTIuODg5IDIuODg5IDAgMCAxLS45MzktLjU0NFptLjI1MS02LjExMi0yLjAzNS0uNTQ4IDEuNDkxIDEuNDg3Yy4xMjEtLjM0OC4zMDctLjY2NS41NDQtLjkzOVptMy4xMzggNC42MjEgMS40ODcgMS40OTEtLjU0OC0yLjAzNWEyLjg4MSAyLjg4MSAwIDAgMS0uOTM5LjU0NHpNNi4wMTkgMTIuNDVsLTEuNDkxIDEuNDg3IDIuMDM1LS41NDhhMi44NiAyLjg2IDAgMCAxLS41NDQtLjkzOVptMS43OC0zLjY4MUw2LjMxMiA3LjI3OGwuNTQ4IDIuMDM1Yy4yNzQtLjIzNy41OTEtLjQyMy45MzktLjU0NFptNS4xNzMuMjkzLTIuMDM1LjU0OGMuMjM3LjI3My40MjMuNTkxLjU0NC45Mzl6Ii8+PGNpcmNsZSBjeD0iOC43NSIgY3k9IjExLjUiIHI9IjIuNDM4IiBmaWxsPSIjZmZmIi8+PC9nPjxwYXRoIGZpbGw9IiMwMDViYmIiIGQ9Ik0xMjggMGgtMjhhNCA0IDAgMCAwLTQgNHY5aDM2VjRhNCA0IDAgMCAwLTQtNFoiLz48cGF0aCBmaWxsPSIjZmZkNTAwIiBkPSJNMTMyIDIyYTQgNCAwIDAgMS00IDRoLTI4YTQgNCAwIDAgMS00LTR2LTloMzZ6Ii8+PC9zdmc+" />"""
+
+    displayBusuanziSiteUVAndPV = false
+    busuanziSiteUVText = "本站訪客數"
+    busuanziSiteUVIcon = "user"
+    busuanziSitePVText = "本站訪問量"
+    busuanziSitePVIcon = "eye"
+    # 說明：僅在生產環境（production）下渲染
+    #      文字或圖示，留空（""）則無
+    #      https://busuanzi.ibruce.info/
+
+    # 社交連結
+    enableSocials = false
+    # 說明：見 data/Socials.toml
+
+
+    ######################################
+    # 多語言
+
+    # 是否開啟多語言按鈕
+    enableLangToggle = false
+
+    # 是否在首頁隱藏多語言按鈕
+    hideLangToggleInHome = false
+
+    # 是否自動隱藏多語言按鈕
+    autoHideLangToggle = true
+    # 說明：即僅當該文章有相應的翻譯版本時才顯
+    #      示按鈕
+
+
+    ######################################
+    # 程式碼塊
+
+    # 是否開啟高亮
+    enableHighlight = true
+
+    # 是否開啟豎直滾動
+    enableOverflowY = false
+    # 最大高度
+    maxHeight = 20
+    # 單位：em
+
+    # 是否開啟複製
+    enableCopy = true
+    # 是否開啟自動隱藏
+    enableCopyAutoHide = true
+
+
+    ######################################
+    # 檔案指紋和子資源完整性（SRI）
+
+    # 說明：僅對 MemE 生成的 CSS 和 JS 有效
+
+    # 是否開啟檔案指紋
+    enableFingerprint = false
+
+    # 是否開啟子資源完整性驗證
+    enableSRI = false
+    # 說明：開啟子資源完整性驗證後，該策略將使
+    #      MemE 的 CSS 和 JS 在像谷歌翻譯這樣
+    #      的第三方網站上被禁止。為了避免開啟後
+    #      的這個問題，你的伺服器必須向 CSS 和
+    #      JS 的請求中加上以下 Header：
+    #
+    #      Access-Control-Allow-Origin: *
+
+
+    ######################################
+    # HTTPS 強制跳轉
+
+    # 說明：僅在生產環境（production）下渲染
+
+    # 是否開啟
+    enableForceHTTPS = false
+    # 說明：使用 JavaScript 來實現跳轉。如果你
+    #      的伺服器不支援強制 HTTPS 跳轉，則可
+    #      開啟此選項。
+
+
+    ######################################
+    # 平滑滾動
+
+    # 是否開啟
+    enableSmoothScroll = false
+
+
+    ######################################
+    # 圖片縮放
+
+    enableMediumZoom = true
+    # 說明：https://github.com/francoischalifour/medium-zoom
+
+
+    ######################################
+    # Instant Page
+
+    enableInstantPage = false
+    # 說明：https://github.com/instantpage/instant.page
+
+
+    ######################################
+    # Lunr 搜尋（暫不支援中文）
+
+    # 說明：需要開啟 `SearchIndex` 的輸出
+
+    enableLunrSearch = false
+    # 說明：https://lunrjs.com/
+
+
+    ######################################
+    # Algolia 搜尋
+
+    # 說明：需要開啟 `Algolia` 的輸出，且需要每
+    #      次將生成的 algolia.json 文件上傳到
+    #      Algolia
+
+    enableAlgoliaSearch = false
+
+    algoliaAppId = ""
+    algoliaApiKey = ""
+    algoliaIndexName = ""
+    # 說明：https://www.algolia.com/
+
+
+    ######################################
+    # 404 頁面
+
+    # 影片封面
+    fofPoster = "./images/flying-clouds-720p.jpg"
+
+    # 影片地址
+    fofVideoWebm = "/videos/flying-clouds-720p.webm"
+    fofVideoMp4 = "/videos/flying-clouds-720p.mp4"
+    # 說明：影片地址可留空（""）
+
+
+    ######################################
+    # 自定義的影片標籤插入輔助
+
+    enableVideoHelper = true
+
+
+    ######################################
+    # 定制第三方庫的地址
+
+    [params.lib]
+        host = "/"
+        # 說明：設置為根（"/"）且將下方對應 path
+        #      設置，如果你想要直接從「本地」
+        #      加載某個庫的話。比如：
+        #      將 path 設置為 "js/lib.min.js"，
+        #      並將文件放到你的 /static/js/lib.min.js
+    [params.lib.path]
+        clipboard = "libs/clipboard-polyfill.min.js"
+        instantsearch = "/npm/instantsearch.js@2/dist/instantsearch.min.js"
+        gitalk = "/npm/gitalk@1/dist/gitalk.min.js"
+        gitalk_css = "/npm/gitalk@1/dist/gitalk.css"
+        instantpage = "/npm/instant.page@5.1.0/instantpage.min.js"
+        katex = "libs/katex.min.js"
+        katex_css = "libs/katex.min.css"
+        katex_mhchem = "libs/mhchem.min.js"
+        katex_auto_render = "libs/auto-render.min.js"
+        lunr = "/npm/lunr@2.3.9/lunr.min.js"
+        lunr_tinyseg = "/npm/lunr-languages@1.4.0/tinyseg.js"
+        lunr_stemmer = "/npm/lunr-languages@1.4.0/min/lunr.stemmer.support.min.js"
+        lunr_lang = "/npm/lunr-languages@1.4.0/min/lunr.de.min.js"
+        mathjax = "/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"
+        medium_zoom = "libs/medium-zoom.min.js"
+        mermaid = "/npm/mermaid@8.8.3/dist/mermaid.min.js"
+        qrcode = "/npm/qrcode-generator@1.4.4/qrcode.min.js"
+        valine = "/npm/valine@1.4.14/dist/Valine.min.js"
+        busuanzi = "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+        utterances = "https://utteranc.es/client.js"
+
+
+
+##########################################
+# 自行添加的多語言站點配置
+
+# 中文
+[languages.zh-hant]
+    languageName = "中文"
+    contentDir = "content/zh"
+    weight = 1
+[languages.zh-hant.params]
+    contentDir = "content/zh"
+
+# 英文
+[languages.en]
+    languageName = "English"
+    contentDir = "content/en"
+    weight = 2
+    languageCode = "en"
+    hasCJKLanguage = false
+    copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)"
+[languages.en.taxonomies]
+    # category = "categories"
+    # tag = "tags"
+[languages.en.menu]
+    # [[languages.en.menu.home]]
+    #     pageref = "/"
+    #     weight = 3
+    #     pre = "internal"
+    #     post = "user-circle"
+    #     identifier = "about"
+    [[languages.en.menu.main]]
+        pageref = "/about/"
+        name = "about"
+        weight = 1
+        pre = "internal"
+        post = "user-circle"
+        identifier = "about"
+    [[languages.en.menu.main]]
+        weight = 2
+        identifier = "theme-switcher"
+    [[languages.en.menu.main]]
+        weight = 3
+        identifier = "lang-switcher"
+[languages.en.params]
+    contentDir = "content/en"
+    homePoetry = ["In the dark night", "Longing for a light of care", "In the daylight", "Desiring for the swallow of a black hole", "’Cause curiosity—seeks for what’s in the darkness"]
+    siteDescription = "Blog of reuixiy in English."
+    listDateFormat = "January 2"
+    fontFamilyTitle = "'Amstelvar', serif"
+    fontFamilyHeadings = "'Amstelvar', serif"
+    fontFamilyBody = "'Amstelvar', serif"
+    fontsLink = "https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    lineHeight = 1.618
+    enableJustify = false
+    enableSmallCaps = true
+    enableEmphasisPoint = false
+    enableChinesePunctuationGlyphCorrection = false
