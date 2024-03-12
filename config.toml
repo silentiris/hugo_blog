@@ -273,19 +273,14 @@ uglyURLs = false
 
     ## 社交欄
     [[menu.socials]]
-        url = "https://github.com/reuixiy"
+        url = "https://github.com/silentiris"
         name = "GitHub"
         weight = 1
         pre = "external"
     [[menu.socials]]
-        url = "https://t.me/yixiuer"
+        url = "https://t.me/ir1schao"
         name = "Telegram"
         weight = 2
-        pre = "external"
-    [[menu.socials]]
-        url = "https://reuixiy.notion.site/2f10796bae1a4bddb1276a51d3f2118d"
-        name = "Others"
-        weight = 3
         pre = "external"
 
     ## 連結欄
@@ -293,11 +288,6 @@ uglyURLs = false
         pageref = "/"
         name = "Home"
         weight = 1
-        pre = "internal"
-    [[menu.links]]
-        pageref = "/coldplay/"
-        name = "Coldplay"
-        weight = 2
         pre = "internal"
     [[menu.links]]
         pageref = "/tags/"
@@ -327,6 +317,7 @@ uglyURLs = false
 
     # 背景
     headerBackground = "alpha(var(--color-bg), 0.8) linear-gradient(90deg, #f795331a 0, #f370551a 15%, #ef4e7b1a 30%, #a166ab1a 44%, #5073b81a 58%, #1098ad1a 72%, #07b39b1a 86%, #6dba821a 100%)"
+    # headerBackground = "alpha(var(--color-bg), 0.8) linear-gradient(90deg, #1a73b91a 0,  #0a3ddf 100%)"
     # 說明：https://developer.mozilla.org/zh-CN/docs/Web/CSS/background
 
     # 頂欄佈局
@@ -423,7 +414,7 @@ uglyURLs = false
     #      Open Graph、Atom、RSS
 
     # 站點的建立時間
-    siteCreatedTime = "2024-03-12T15:13:14+08:00"
+    siteCreatedTime = "2023-06-01T15:13:14+08:00"
     # 注意：請保持此格式，更改數字
 
     # 站點的推特帳號
@@ -1294,7 +1285,7 @@ uglyURLs = false
     # 文章的標籤
 
     # 是否開啟
-    enablePostTags = false
+    enablePostTags = true
 
     # 標籤的圖示
     postTagsIcon = "tag"
@@ -1377,7 +1368,7 @@ uglyURLs = false
     iconAnimation = true
 
     # 是否顯示站點的作者名稱
-    displaySiteAuthorName = false
+    displaySiteAuthorName = true
 
     # 是否顯示 Hugo 和 MemE 的連結
     displayPoweredBy = false
