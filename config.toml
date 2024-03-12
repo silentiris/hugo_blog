@@ -2,7 +2,7 @@
 # 站點配置
 
 baseURL = "blog.silentdragon.com"
-title = "irischao"
+title = "irisChao"
 languageCode = "zh-hant"
 hasCJKLanguage = true
 # 版權資訊（支援 Markdown）
@@ -231,21 +231,21 @@ uglyURLs = false
     #     post = "search"
     [[menu.main]]
         pageref = "/life/"
-        name = "生活"
+        name = "Life"
         weight = 1
         pre = "internal"
         post = "grav"
         identifier = "life"
     [[menu.main]]
         pageref = "/tech/"
-        name = "技術"
+        name = "Tech"
         weight = 2
         pre = "internal"
         post = "wpexplorer"
         identifier = "tech"
     [[menu.main]]
         pageref = "/about/"
-        name = "述身"
+        name = "About"
         weight = 3
         pre = "internal"
         post = "user-circle"
@@ -388,7 +388,7 @@ uglyURLs = false
 
     ## 「詩意人生」
     # 詩句，支援 Markdown
-    homePoetry = ["暗夜中", "渴望一束光的關懷", "在白天", "卻更渴望黑洞的吞噬", "因為好奇心，想看看黑暗中有什麼"]
+    homePoetry = ["Will you join in our crusade?", "Who will be strong and stand with me?", "Somewhere beyond the barricade", "Is there a world you long to see?", "Do you hear the people sing?","Say, do you hear the distant drums?","It is the future that they bring","When tomorrow comes!"]
     # 底部連結的內間距，單位：em
     homeLinksPadding = 1
 
@@ -414,16 +414,16 @@ uglyURLs = false
     # 站點資訊
 
     # 站點的 LOGO
-    siteLogo = "/icons/apple-touch-icon.png"
+    siteLogo = "/icons/gopher.jpg"
     # 說明：用於 JSON-LD、Open Graph
 
     # 站點的描述
-    siteDescription = "這是一休兒之文術网誌！怎麽記住 reuixiy 呢？其實就是「一休兒」之拼音，不過方向是自右往左！"
+    siteDescription = "site create by irisChao"
     # 說明：用於 HTML 的頭部元資料、JSON-LD、
     #      Open Graph、Atom、RSS
 
     # 站點的建立時間
-    siteCreatedTime = "2017-05-27T15:13:14+08:00"
+    siteCreatedTime = "2024-03-12T15:13:14+08:00"
     # 注意：請保持此格式，更改數字
 
     # 站點的推特帳號
@@ -640,7 +640,7 @@ uglyURLs = false
     # KaTeX 公式支援（包括化學方程式）
 
     # 是否開啟（全域性設定）
-    enableKaTeX = false
+    enableKaTeX = true
     # 說明：文章的 Front Matter 中的 `katex`
     #      的優先順序高於此處
 
