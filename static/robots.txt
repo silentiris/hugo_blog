@@ -1,3 +1,0 @@
-User-agent: *
-Disallow: /uploads/
-Sitemap: https://io-oi.me/sitemap.xml

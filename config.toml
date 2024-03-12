@@ -102,11 +102,11 @@ uglyURLs = false
     # 座右銘或簡介
     motto = "依然自由自我"
     # 頭像
-    avatar = "/icons/apple-touch-icon.png"
+    avatar = "/icons/gopher.jpg"
     # 網站（預設值：baseURL）
-    website = "https://io-oi.me/"
+    website = "https://irischao.com/"
     # 推特
-    twitter = "reuixiy"
+    twitter = "silentiris"
 
 # 相關文章
 [related]
@@ -414,11 +414,11 @@ uglyURLs = false
     # 站點資訊
 
     # 站點的 LOGO
-    siteLogo = "/icons/gopher.jpg"
+    siteLogo = "/icons/gopher.png"
     # 說明：用於 JSON-LD、Open Graph
 
     # 站點的描述
-    siteDescription = "site create by irisChao"
+    siteDescription = "site created by irisChao"
     # 說明：用於 HTML 的頭部元資料、JSON-LD、
     #      Open Graph、Atom、RSS
 
@@ -492,7 +492,7 @@ uglyURLs = false
     # 列表頁面
 
     # 寬度
-    listWidth = 36
+    listWidth = 42
     # 說明：如果留空（""），則用 42 作為預設值
     #      單位：em
 
@@ -649,7 +649,7 @@ uglyURLs = false
     # MathJax 公式支援（包括化學方程式）
 
     # 是否開啟（全域性設定）
-    enableMathJax = false
+    enableMathJax = true
     # 說明：文章的 Front Matter 中的 `mathjax`
     #      的優先順序高於此處
 
@@ -851,7 +851,7 @@ uglyURLs = false
     # 注意：只支援 HSL 顏色值
 
     # 文章的內容寬度
-    postWidth = 36
+    postWidth = 42
     # 說明：如果留空（""），則用 42 作為預設值
     #      單位：em
 
@@ -1098,7 +1098,7 @@ uglyURLs = false
     ######################################
     ## 字號（單位：px）
 
-    fontSize = 16
+    fontSize = 17
 
     ######################################
     ## 製表符的寬度
@@ -1220,9 +1220,9 @@ uglyURLs = false
     #      的優先順序高於此處
 
     # 倉庫地址
-    repoURL = "https://github.com/reuixiy/io-oi.me"
+    repoURL = "https://github.com/silentiris/hugo_blog"
     # 編輯地址
-    repoEditURL = "https://github.com/reuixiy/io-oi.me/blob/main"
+    repoEditURL = "https://github.com/silentiris/hugo_blog/blob/main"
     repoEditURLSuffix = "?plain=1"
 
     # Git 的圖示
