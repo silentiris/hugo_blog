@@ -1,7 +1,7 @@
 ##########################################
 # 站點配置
 
-baseURL = "blog.silentdragon.com"
+baseURL = "irischao.com"
 title = "irisChao"
 languageCode = "zh-hant"
 hasCJKLanguage = true
