@@ -2,7 +2,7 @@
 title = "Lambda表达式，方法引用和StreamApi"
 date = "2023-06-02T13:38:47+08:00"
 tags = []
-slug = ""
+slug = "Lambda-expressions-method-references-and-StreamApi"
 +++
 
 # 简介

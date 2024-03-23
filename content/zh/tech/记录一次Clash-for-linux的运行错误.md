@@ -2,7 +2,7 @@
 title = "记录一次Clash for Linux的运行错误"
 date = "2023-10-05T14:33:55+08:00"
 tags = []
-slug = ""
+slug = "Log-a-Clash-for-Linux-run-error"
 +++
 
 项目地址：[clash-for-linux](https://github.com/wanhebin/clash-for-linux)

@@ -2,7 +2,7 @@
 title = "WebSocket简介与Java应用"
 date = "2023-06-18T14:32:49+08:00"
 tags = []
-slug = ""
+slug = "Introduction-to-WebSocket-and-Java-Application"
 +++
 
 WebSocket简介与java实现

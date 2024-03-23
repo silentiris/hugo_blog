@@ -2,7 +2,7 @@
 title = "关于mysql索引的一些探索"
 date = "2024-03-12T10:59:48+08:00"
 tags = []
-slug = ""
+slug = "some-exploration-of-MySQL-indexes"
 +++
 
 在复习索引的时候看了小林coding的博客，造了一些数据数据，方法如下：

@@ -2,7 +2,7 @@
 title = "Code Server配置"
 date = "2023-06-04T14:28:16+08:00"
 tags = []
-slug = ""
+slug = "Code-Server-config"
 +++
 
 # code-server 简介

@@ -2,7 +2,7 @@
 title = "Java注解原理"
 date = "2023-06-01T21:37:02+08:00"
 tags = []
-slug = ""
+slug = "Java-annotation-principle"
 +++
 
 # 注解的基础知识

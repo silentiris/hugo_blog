@@ -2,7 +2,7 @@
 title = "Maven多模块管理"
 date = "2023-10-06T14:34:43+08:00"
 tags = []
-slug = ""
+slug = "Maven-multi-module-management"
 +++
 
 # 拆分模块

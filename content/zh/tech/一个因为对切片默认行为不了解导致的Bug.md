@@ -2,7 +2,7 @@
 title = "一个因为对切片默认行为不了解导致的Bug"
 date = "2024-03-17T22:32:44+08:00"
 tags = []
-slug = ""
+slug = "A-bug-caused-by-ignorance-of-the-default-behavior-of-slicing"
 +++
 ```go
 titles := make([]string, len(acSubmissions))

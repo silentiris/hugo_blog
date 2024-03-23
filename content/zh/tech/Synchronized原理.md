@@ -2,7 +2,7 @@
 title = "Synchronized原理"
 date = "2023-11-05T14:35:47+08:00"
 tags = []
-slug = ""
+slug = "Synchronized-principle"
 +++
 
 # 共享带来的问题
