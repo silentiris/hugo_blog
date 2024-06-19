@@ -23,7 +23,7 @@ slug = "record-the-via-rekey-experience-of-keychronK3"
 
 在这个文件中可以找到自己键盘型号的json文件，下载下来，进入https://usevia.app/。
 
-首先需要打开设置中的`Show Design lab`，<img src="https://cdn.jsdelivr.net/gh/silentiris/pic_bed@latest/blog-images/image-20240616134518418.png" alt="image-20240616134518418" style="zoom:50%;" />****
+首先需要打开设置中的`Show Design lab`，<img src="https://cdn.jsdelivr.net/gh/silentiris/pic_bed@latest/blog-images/image-20240616134518418.png" alt="image-20240616134518418" style="zoom:50%;" />
 
 接着会出现一个design的栏，进入之后点击load。
 
